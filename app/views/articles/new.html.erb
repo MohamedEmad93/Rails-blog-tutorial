@@ -1,0 +1,31 @@
+<h1>Create a New Article</h1>
+<%= form_for @article, :html => {:multipart => true} do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :cover_photo_for_your_article %><br />
+    <%= f.file_field :cover %>
+  </p>
+  <p>
+    <%= f.label :pdf_link_for_your_article %><br />
+    <%= f.file_field :pdfLink %>
+  </p>
+  <p>
+    <%= f.label :remote_pdfLink_url , "Or external link"%><br />
+    <%= f.text_field :remote_pdfLink_url %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
